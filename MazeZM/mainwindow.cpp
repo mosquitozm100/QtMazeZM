@@ -186,8 +186,12 @@ void MainWindow::search_path1(int row, int col){        //DFS
 
 }
 void MainWindow::get_path1() {
+    clock_t t1 = clock();
     search_path1(row,col);
     draw();
+    int t = (clock() - t1) * 1.0 / CLOCKS_PER_SEC * 1000;
+    QString str = QString("%1").arg(t);
+    ui->time1->setText(str);
 }
 void MainWindow::search_path2(int row,int col){		//BFS
     for(int i = 0;i < row;i++){
@@ -226,6 +230,10 @@ void MainWindow::search_path2(int row,int col){		//BFS
 }
 
 void MainWindow::get_path2() {
+    clock_t t1 = clock();
     search_path2(row,col);
     draw();
+    int t = (clock() - t1) * 1.0 / CLOCKS_PER_SEC * 1000;
+    QString str = QString("%1").arg(t);
+    ui->time2->setText(str);
 }
